@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Random</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<!--Style Tag-->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(90deg, #7cccbf, #fecc4f);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container h1 {
+        position: absolute;
+        top: 23%;
+        letter-spacing: 1px;
+    }
+
+    .box {
+        width: 650px;
+        height: 267px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px 0.5px rgba(255, 255, 255, 0.5),
+            -2px -2px 5px -0.5px rgba(0, 0, 0, 0.2),
+            -2px -2px 5px -0.5px rgba(255, 255, 255, 0.5),
+            2px 2px 5px 0.5px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        position: relative;
+    }
+
+    #value-text {
+        width: 400px;
+        height: 200px;
+        font-size: 50px;
+        outline: none;
+        border: 0;
+        color: #c4c4c4;
+        position: relative;
+        cursor: context-menu;
+
+    }
+
+    #min-box {
+        position: absolute;
+        height: 30%;
+        width: 220px;
+        font-size: 30px;
+        outline: none;
+        border-bottom: 2px solid #dfe1e5;
+        color: #1a73e8;
+        font-weight: 700;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        right: 5%;
+        top: 0;
+        transition: 0.5s ease-in-out;
+    }
+
+    #min-box:focus,
+    #max-box:focus {
+        border-bottom: 2px solid #1a73e8;
+    }
+
+    #min-box::placeholder,
+    #max-box::placeholder {
+        font-size: 30px;
+    }
+
+    #min-box:focus::placeholder,
+    #max-box:focus::placeholder {
+        color: #1a73e8;
+    }
+
+    #max-box {
+        height: 30%;
+        width: 220px;
+        font-size: 30px;
+        outline: none;
+        border-bottom: 2px solid #dfe1e5;
+        color: #1a73e8;
+        font-weight: 700;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        transition: 0.5s ease-in-out;
+        position: absolute;
+        margin-top: 15%;
+        right: 5%;
+        top: 0;
+    }
+
+    #submit-btn {
+        width: 100%;
+        bottom: 0;
+        border: 0;
+        background: #1a73e8;
+        height: 48px;
+        cursor: pointer;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        transition: 0.34s ease-in-out;
+    }
+
+    #submit-btn:hover {
+        transform: scale(1.005);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Random Number</h1>
+        <div class="box">
+            <div id="value-text"></div>
+            <input type="text" name="min-text-box" id="min-box" placeholder="Min" min="-9999999999">
+            <input type="text" name="max-text-box" id="max-box" placeholder="Max" max="9999999999">
+            <input type="submit" value="GENERATE" id="submit-btn" onclick="randomnumber()">
+        </div>
+    </div>
+
+    <!--Script Tap-->
+    <script>
+        function randomnumber() {
+            var max = parseInt(document.getElementById('max-box').value);
+            var min = parseInt(document.getElementById('min-box').value);
+            var text = Math.floor(Math.random() * (max - min)) + min;
+            document.getElementById("value-text").innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>
